@@ -12988,11 +12988,11 @@ class _PickerViewState extends State<_PickerView>
     if (count > 0) {
       lastRange = _pickerStateDetails.selectedRanges![count - 1];
     }
-
+    final bool allowSingleDaySelection = true;
     if (lastRange != null &&
         lastRange.startDate != null &&
         (lastRange.endDate == null ||
-            isSameDate(lastRange.startDate, lastRange.endDate))) {
+            (!allowSingleDaySelection && isSameDate(lastRange.startDate, lastRange.endDate)))) {
       dynamic startDate = lastRange.startDate;
       dynamic endDate = selectedDate;
       if (startDate.isAfter(endDate) == true) {
